@@ -383,6 +383,48 @@
   transform: translateY(-1px);
 }
 
+/* 이벤트 배너 스타일 */
+.event-banner {
+  margin: 16px auto;
+  max-width: 760px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 26px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #67e8f9, #7dd3fc);
+  color: #020617;
+  box-shadow: 0 12px 36px rgba(0,0,0,0.45);
+}
+.event-title {
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+.event-sub {
+  margin-top: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  opacity: 1;
+  display: inline-block;
+  padding: 4px 10px;
+  border: 1px solid #ffffff;
+  border-radius: 999px;
+  color: #ffffff;
+  background: transparent;
+}
+.event-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+
 </style>
 </head>
 <body>
@@ -439,6 +481,15 @@
           </div>
         </div>
       </div>
+
+      <!-- 이미지 팝업 배너 (2번째 게시글 아래) -->
+<div class="event-banner">
+  <div class="event-text">
+    <div class="event-title">OXBIT.APP 100% 빠른 소식!<br>미국 주식뉴스도 함께!</div>
+    <div class="event-sub">AD</div>
+  </div>
+  <div class="event-icon">⚡</div>
+</div>
 
       <div class="news-item" style="padding-left:0;">
         <div class="time gray">20:41</div>
