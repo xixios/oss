@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OXBIT.APP</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: "Pretendard", "Apple SD Gothic Neo", sans-serif; }
+    body {
+      background: radial-gradient(ellipse at top, #111827 0%, #020617 60%);
+      color: #e5e7eb;
+      height: 100vh;
+      overflow: hidden;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 32px;
+      background: linear-gradient(180deg, #0b1220 0%, #070c16 100%);
+    }
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      font-size: 18px;
+      background: linear-gradient(135deg, #38bdf8, #60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    nav {
+      display: flex;
+      gap: 6px;
+      font-size: 14px;
+      color: #cbd5f5;
+    }
+    nav span {
+      cursor: pointer;
+      opacity: 0.9;
+      padding: 6px 14px;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      color: #e0f2fe;
+      transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+    nav span:hover {
+      border-color: #38bdf8;
+      background: rgba(56,189,248,0.12);
+      color: #ffffff;
+      opacity: 1;
+    }
+    nav span:hover {
+      background: rgba(56,189,248,0.12);
+      color: #ffffff;
+    }
+    nav span:hover {
+      opacity: 1;
+      color: #ffffff;
+    }
+    .top-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 12px;
+      color: #c7d2fe;
+    }
+    .top-right strong {
+      color: #38bdf8;
+      font-weight: 600;
+    }
+    .pill {
+      padding: 8px 18px;
+      border-radius: 8px;
+      background: transparent;
+      color: #38bdf8;
+      font-weight: 500;
+      border: 1px solid #38bdf8;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .pill:hover {
+      background: rgba(56,189,248,0.12);
+      color: #ffffff;
+    }
+    .icon-pill {
+      width: 34px;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.12);
+      font-size: 14px;
+      color: #e5e7eb;
+      transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .icon-pill:hover {
+      background: rgba(56,189,248,0.15);
+      border-color: #38bdf8;
+      color: #38bdf8;
+      box-shadow: 0 0 0 1px rgba(56,189,248,0.4);
+    }
+    main {
+      display: flex;
+      height: calc(100vh - 64px);
+    }
+    .timeline {
+      width: 2px;
+      background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.15), transparent);
+      margin: 0 24px;
+    }
+    .news-wrap {
+      flex: 1;
+      overflow-y: auto;
+      padding: 24px 0;
+    }
+    .news-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding: 0 24px;
+    }
+    .news-header h2 { font-size: 18px; }
+    .refresh { font-size: 12px; opacity: 0.7; border: 1px solid rgba(255,255,255,0.2); padding: 6px 12px; border-radius: 999px; }
+    .news-item {
+      display: flex;
+      padding: 18px 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .time {
+      width: 64px;
+      font-size: 12px;
+      color: #f87171;
+      flex-shrink: 0;
+    }
+    .content {
+      flex: 1;
+    }
+    .title {
+      font-size: 15px;
+      margin-bottom: 8px;
+    }
+    .title.red { color: #f87171; }
+    .desc {
+      font-size: 13px;
+      line-height: 1.6;
+      color: #9ca3af;
+    }
+    .tags {
+      margin-top: 10px;
+      display: flex;
+      gap: 10px;
+      font-size: 11px;
+      opacity: 0.6;
+    }
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      opacity: 0.5;
+      margin-left: 20px;
+    }
+    .expand {
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 12px;
+      opacity: 0.7;
+      margin-left: 16px;
+    }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div style="display:flex;align-items:center;gap:18px;">
+      <div class="logo">OXBIT.APP</div>
+      <nav>
+        <span>속보</span>
+        <span>뉴스</span>
+        <span>마켓</span>
+        <span>포지션</span>
+        <span>모의투자</span>
+      </nav>
+    </div>
+    <div class="top-right">
+      <span>동시접속자 <strong>1,640</strong></span>
+      <span class="icon-pill">🔍</span>
+      <span class="icon-pill">🌙</span>
+      <span class="icon-pill">💬</span>
+      <span class="pill">로그인</span>
+    </div>
+  </header>
+
+  <main>
+    <div class="timeline"></div>
+    <div class="news-wrap">
+      <div class="news-header">
+        <h2>속보</h2>
+        <div class="refresh">새로고침</div>
+      </div>
+
+      <div class="news-item">
+        <div class="time">18:00</div>
+        <div class="content">
+          <div class="title red">[시스템공지] OXBIT.APP 모의투자 기능 베타 서비스 오픈</div>
+          <div class="desc">안녕하세요. OXBIT.APP입니다. 현재 모의투자 베타 서비스를 오픈했으며, 인터페이스(UI)는 최적화된 환경을 제공하기 위해 업데이트 중에 있습니다...</div>
+          <div class="tags">공지사항 · ❤ 1</div>
+        </div>
+        <div class="expand">펼치기</div>
+      </div>
+
+      <div class="news-item">
+        <div class="time">23:42</div>
+        <div class="content">
+          <div class="title red">미국 증시 암호화폐 주가 하락세 개장, 셔플 1.69% 하락</div>
+          <div class="desc">시장 정보에 따르면, 미국 3대 주요지수는 개장했으며 다우존스, S&P500, 나스닥은 소폭 상승 출발...</div>
+          <div class="tags">뉴욕거래소</div>
+        </div>
+        <div class="expand">펼치기</div>
+      </div>
+
+      <div class="news-item">
+        <div class="time" style="color:#9ca3af">20:41</div>
+        <div class="content">
+          <div class="title">미국 실업수당 청구 건수 예상치 하회에 BTC 하락</div>
+          <div class="desc">소식에 따르면, BTC 가격은 미국 실업수당 청구 건수 발표 이후 소폭 하락했습니다...</div>
+          <div class="tags">미국증시 · BTC</div>
+        </div>
+        <div class="expand">펼치기</div>
+      </div>
+
+      <div class="news-item">
+        <div class="time">20:13</div>
+        <div class="content">
+          <div class="title red">은 현물 단기 하락세, 장중 상승폭 3.45% 기록</div>
+          <div class="desc">시장 정보에 따르면, 은 현물 가격은 단기 하락하며 온스당 $74.3에 거래되고 있습니다...</div>
+          <div class="tags">은</div>
+        </div>
+        <div class="expand">펼치기</div>
+      </div>
+
+    </div>
+  </main>
+</body>
+</html>
